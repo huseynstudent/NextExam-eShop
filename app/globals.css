@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: theme(colors.ink);
+  background: #ffffff;
+}
+
+/*
+  Reusable "asset slot" style — every place in this project that is
+  waiting on a real image or the 3D GoPro canvas uses this class so
+  they're easy to find later: search the codebase for `asset-slot`.
+*/
+.asset-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #f0efec,
+    #f0efec 10px,
+    #f7f6f4 10px,
+    #f7f6f4 20px
+  );
+  border: 1px dashed #cfccc6;
+  color: #9a978f;
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
