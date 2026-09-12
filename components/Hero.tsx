@@ -1,23 +1,23 @@
 import dynamic from "next/dynamic";
+import { getTranslations } from "next-intl/server";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 const GoproScene = dynamic(() => import("@/components/GoproScene"), {
   ssr: false,
 });
 
-export default function Hero() {
+export default async function Hero() {
+  const t = await getTranslations("hero");
   return (
     <section className="relative w-full bg-cream">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-16 lg:grid-cols-2 lg:px-10 lg:py-24">
         {/* Copy */}
         <div className="order-2 lg:order-1">
           <h1 className="text-4xl tracking-wide text-ink sm:text-5xl">
-            GOPRO HERO9 BLACK
+            {t("title")}
           </h1>
-          <p className="mt-4 text-sm text-subtle">
-            Limited stocks available. Grab it now!
-          </p>
+          <p className="mt-4 text-sm text-subtle">{t("subtitle")}</p>
           <button className="mt-8 rounded-full bg-accent px-8 py-3 text-[0.7rem] tracking-widest2 text-white transition-colors hover:bg-accent-dark">
-            SHOP COLLECTION
+            {t("cta")}
           </button>
         </div>
 

@@ -1,46 +1,50 @@
-import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { prisma } from "@/lib/prisma";
+import { auth } from "@/auth";
+import ProductCard from "@/components/ProductCard";
 
-const products = [
-  { name: "iPad (9th Gen)", price: "$870", image: "/assets/tablet.png" },
-  { name: "Drone With Camera", price: "$600", image: "/assets/drone.png" },
-  { name: "Apple Watch (2nd Gen)", price: "$400", image: "/assets/watch2.png" },
-  { name: "Ultra HD TV", price: "$2000", image: "/assets/monitor.png" },
-  { name: "Bluetooth Speaker", price: "$75", image: "/assets/speaker.png" },
-];
+export default async function BestSelling({ locale }: { locale: string }) {
+  const t = await getTranslations("bestSelling");
+  const session = await auth();
 
-export default function BestSelling() {
+  const [products, wishlist] = await Promise.all([
+    prisma.product.findMany({
+      where: { section: "best-selling" },
+      orderBy: { sortOrder: "asc" },
+    }),
+    session
+      ? prisma.wishlistItem.findMany({
+          where: { userId: session.user.id },
+          select: { productId: true },
+        })
+      : Promise.resolve([]),
+  ]);
+  const wishlistedIds = new Set(wishlist.map((w) => w.productId));
+
   return (
     <section className="relative mx-auto max-w-7xl px-6 py-10 lg:px-10">
       <div className="mb-8 flex items-center gap-4">
         <h2 className="text-sm tracking-widest2 text-ink">
-          BEST SELLING ITEMS
+          {t("heading")}
         </h2>
         <div className="h-px flex-1 bg-[repeating-linear-gradient(90deg,#cfccc6_0,#cfccc6_4px,transparent_4px,transparent_8px)]" />
       </div>
 
-      <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
-        {products.map((p) => (
-          <div
-            key={p.name}
-            className="group flex flex-col border border-line transition-colors hover:border-accent"
-          >
-            <div className="relative aspect-[4/3] w-full bg-[#f7f6f4]">
-              <Image
-                src={p.image}
-                alt={p.name}
-                fill
-                sizes="(min-width: 1024px) 20vw, 45vw"
-                className="object-contain p-6"
-              />
-            </div>
-            <div className="p-4">
-              <h3 className="text-xs tracking-wide text-ink">{p.name}</h3>
-              <p className="mt-1 text-sm text-accent">{p.price}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+      {products.length === 0 ? (
+        <p className="text-sm text-subtle">{t("empty")}</p>
+      ) : (
+        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+          {products.map((p) => (
+            <ProductCard
+              key={p.id}
+              product={p}
+              locale={locale}
+              isWishlisted={wishlistedIds.has(p.id)}
+            />
+          ))}
+        </div>
+      )}
 
       <button
         aria-label="Previous products"

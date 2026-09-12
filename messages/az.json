@@ -1,0 +1,136 @@
+{
+  "nav": {
+    "home": "Ana səhifə",
+    "about": "Haqqımızda",
+    "shop": "Mağaza",
+    "blogs": "Bloqlar",
+    "pages": "Səhifələr",
+    "contact": "Əlaqə"
+  },
+  "hero": {
+    "title": "GOPRO HERO9 BLACK",
+    "subtitle": "Stoklar məhduddur. İndi əldə edin!",
+    "cta": "KOLLEKSİYAYA BAX"
+  },
+  "features": {
+    "freeDelivery": {
+      "title": "Pulsuz Çatdırılma",
+      "desc": "Konsektetur adipi elit lorem ipsum dolor sit amet."
+    },
+    "quality": {
+      "title": "Keyfiyyət Zəmanəti",
+      "desc": "Dolor sit amet orem ipsu mcons ectetur adipi elit."
+    },
+    "dailyOffers": {
+      "title": "Gündəlik Endirimlər",
+      "desc": "Amet consectetur adipi elit loreme ipsum dolor sit."
+    },
+    "securePayment": {
+      "title": "100% Təhlükəsiz Ödəniş",
+      "desc": "Rem Lopsum dolor sit amet, consectetur adipi elit."
+    }
+  },
+  "categories": {
+    "heading": "KATEQORİYALAR",
+    "empty": "Hələ kateqoriya yoxdur — admin paneldən əlavə edin."
+  },
+  "bestSelling": {
+    "heading": "ƏN ÇOX SATILAN MƏHSULLAR",
+    "empty": "Hələ məhsul yoxdur — admin paneldən əlavə edin."
+  },
+  "discount": {
+    "titleLine1": "APPLE KOLLEKSİYASINDA",
+    "titleLine2": "30% ENDİRİM",
+    "cta": "KOLLEKSİYAYA BAX",
+    "days": "Gün",
+    "hrs": "Saat",
+    "min": "Dəq",
+    "sec": "San"
+  },
+  "auth": {
+    "signIn": "Daxil ol",
+    "signOut": "Çıxış",
+    "pageTitle": "Daxil ol",
+    "pageSubtitle": "Sifarişləri izləmək və seçilmişləri saxlamaq üçün Google ilə daxil olun.",
+    "continueWithGoogle": "Google ilə davam et",
+    "orDivider": "VƏ YA",
+    "emailLabel": "E-poçt",
+    "passwordLabel": "Şifrə",
+    "nameLabel": "Ad",
+    "namePlaceholder": "Adınız",
+    "emailPlaceholder": "siz@nümunə.com",
+    "passwordPlaceholder": "••••••••",
+    "passwordHint": "Ən azı 8 simvol.",
+    "signInCta": "Daxil ol",
+    "signUpCta": "Hesab yarat",
+    "signUpTitle": "Hesab yaradın",
+    "signUpSubtitle": "Sifarişləri izləmək və seçilmişləri saxlamaq üçün qeydiyyatdan keçin.",
+    "noAccountYet": "Hesabınız yoxdur?",
+    "alreadyHaveAccount": "Artıq hesabınız var?",
+    "goToSignUp": "Qeydiyyat",
+    "goToSignIn": "Daxil ol",
+    "errorCredentialsSignin": "E-poçt və ya şifrə yanlışdır.",
+    "errorEmailInUse": "Bu e-poçt artıq qeydiyyatdan keçib.",
+    "errorInvalidInput": "Düzgün e-poçt və ən azı 8 simvoldan ibarət şifrə daxil edin."
+  },
+  "static": {
+    "about": {
+      "kicker": "Bizim hekayəmiz",
+      "title": "ShopLite haqqında",
+      "p1": "ShopLite kiçik bir elektronika mağazası kimi başladı: yaxşı texnika təxminlə seçilməməlidir. Kameralardan geyilə bilən qurğulara qədər hər kateqoriyanı özümüz seçirik.",
+      "p2": "Saytdakı hər şey — kateqoriyalar, məhsullar, qiymətlər — komandamız tərəfindən canlı idarə olunur, ona görə də gördükləriniz həmişə aktualdır."
+    },
+    "shop": {
+      "title": "Mağaza",
+      "subtitle": "Satdığımız hər şeyə baxın.",
+      "categoriesHeading": "Kateqoriyalar",
+      "allProductsHeading": "Bütün məhsullar",
+      "empty": "Hələ məhsul yoxdur — tezliklə yenilənəcək."
+    },
+    "blogs": {
+      "title": "Bloq",
+      "subtitle": "ShopLite komandasından xəbərlər və bələdçilər.",
+      "post1": {
+        "title": "İlk action kameranızı necə seçmək olar",
+        "excerpt": "Alarkən nələrə diqqət etməli olduğunuza qısa bələdçi."
+      },
+      "post2": {
+        "title": "Bu mövsümün ən yaxşı rəqəmsal saatları",
+        "excerpt": "Batareya ömrü və rahatlığa görə müqayisə etdik."
+      },
+      "post3": {
+        "title": "Kulislər arxasında: kataloqumuzu necə seçirik",
+        "excerpt": "Komandamızın ShopLite rəflərinə nələri seçdiyinə baxış."
+      }
+    },
+    "contact": {
+      "title": "Əlaqə",
+      "subtitle": "Sifariş və ya məhsulla bağlı sualınız var? Yazın — hər mesajı oxuyuruq.",
+      "emailLabel": "E-poçt",
+      "hoursLabel": "İş saatları",
+      "hoursValue": "B.e–C., 09:00–18:00",
+      "nameLabel": "Ad",
+      "emailFieldLabel": "E-poçt",
+      "messageLabel": "Mesaj",
+      "sendCta": "Göndər",
+      "sentConfirmation": "Təşəkkürlər — tezliklə sizinlə əlaqə saxlayacağıq.",
+      "errorMessage": "Xəta baş verdi — yenidən cəhd edin."
+    },
+    "wishlist": {
+      "title": "Seçilmişlər",
+      "subtitle": "Saxladığınız məhsullar.",
+      "empty": "Hələ heç nə saxlanmayıb — məhsulun ürək işarəsinə basaraq buraya əlavə edin."
+    },
+    "cart": {
+      "title": "Səbət",
+      "empty": "Səbətiniz boşdur.",
+      "totalLabel": "Cəmi"
+    },
+    "search": {
+      "title": "Axtarış",
+      "placeholder": "Məhsul axtarın…",
+      "resultsCount": "{count, plural, one {# nəticə} other {# nəticə}}",
+      "noResults": "Bu axtarışa uyğun məhsul tapılmadı."
+    }
+  }
+}

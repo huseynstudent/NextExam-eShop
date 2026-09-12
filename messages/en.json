@@ -1,0 +1,136 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "shop": "Shop",
+    "blogs": "Blogs",
+    "pages": "Pages",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "GOPRO HERO9 BLACK",
+    "subtitle": "Limited stocks available. Grab it now!",
+    "cta": "SHOP COLLECTION"
+  },
+  "features": {
+    "freeDelivery": {
+      "title": "Free Delivery",
+      "desc": "Consectetur adipi elit lorem ipsum dolor sit amet."
+    },
+    "quality": {
+      "title": "Quality Guarantee",
+      "desc": "Dolor sit amet orem ipsu mcons ectetur adipi elit."
+    },
+    "dailyOffers": {
+      "title": "Daily Offers",
+      "desc": "Amet consectetur adipi elit loreme ipsum dolor sit."
+    },
+    "securePayment": {
+      "title": "100% Secure Payment",
+      "desc": "Rem Lopsum dolor sit amet, consectetur adipi elit."
+    }
+  },
+  "categories": {
+    "heading": "CATEGORIES",
+    "empty": "No categories yet — add some from the admin panel."
+  },
+  "bestSelling": {
+    "heading": "BEST SELLING ITEMS",
+    "empty": "No products yet — add some from the admin panel."
+  },
+  "discount": {
+    "titleLine1": "30% DISCOUNT ON",
+    "titleLine2": "APPLE COLLECTION",
+    "cta": "SHOP COLLECTION",
+    "days": "Days",
+    "hrs": "Hrs",
+    "min": "Min",
+    "sec": "Sec"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "pageTitle": "Sign in",
+    "pageSubtitle": "Sign in with Google to track orders and save your wishlist.",
+    "continueWithGoogle": "Continue with Google",
+    "orDivider": "OR",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "••••••••",
+    "passwordHint": "At least 8 characters.",
+    "signInCta": "Sign in",
+    "signUpCta": "Create account",
+    "signUpTitle": "Create an account",
+    "signUpSubtitle": "Sign up to track orders and save your wishlist.",
+    "noAccountYet": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "goToSignUp": "Sign up",
+    "goToSignIn": "Sign in",
+    "errorCredentialsSignin": "Incorrect email or password.",
+    "errorEmailInUse": "That email is already registered.",
+    "errorInvalidInput": "Enter a valid email and a password of at least 8 characters."
+  },
+  "static": {
+    "about": {
+      "kicker": "Our story",
+      "title": "About ShopLite",
+      "p1": "ShopLite started as a small electronics corner store with one idea: good gear shouldn't require guesswork. We hand-pick every category, from cameras to wearables, and stand behind what we sell.",
+      "p2": "Everything on this site — categories, products, prices — is managed live by our team, so what you see is always current."
+    },
+    "shop": {
+      "title": "Shop",
+      "subtitle": "Browse everything we carry.",
+      "categoriesHeading": "Categories",
+      "allProductsHeading": "All products",
+      "empty": "No products yet — check back soon."
+    },
+    "blogs": {
+      "title": "Blog",
+      "subtitle": "News, guides, and product deep-dives from the ShopLite team.",
+      "post1": {
+        "title": "How to choose your first action camera",
+        "excerpt": "Resolution, stabilization, battery life — a quick guide to what actually matters before you buy."
+      },
+      "post2": {
+        "title": "Wearables worth your wrist",
+        "excerpt": "We compared this season's digital watches on battery life, comfort, and everyday usefulness."
+      },
+      "post3": {
+        "title": "Behind the scenes: how we pick our catalog",
+        "excerpt": "A look at how our small team decides what earns a spot on ShopLite's shelves."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Questions about an order or a product? Reach out — we read every message.",
+      "emailLabel": "Email",
+      "hoursLabel": "Hours",
+      "hoursValue": "Mon–Fri, 9am–6pm",
+      "nameLabel": "Name",
+      "emailFieldLabel": "Email",
+      "messageLabel": "Message",
+      "sendCta": "Send message",
+      "sentConfirmation": "Thanks — we'll get back to you soon.",
+      "errorMessage": "Something went wrong — please try again."
+    },
+    "wishlist": {
+      "title": "Wishlist",
+      "subtitle": "Items you've saved.",
+      "empty": "Nothing saved yet — tap the heart on any product to add it here."
+    },
+    "cart": {
+      "title": "Cart",
+      "empty": "Your cart is empty.",
+      "totalLabel": "Total"
+    },
+    "search": {
+      "title": "Search",
+      "placeholder": "Search products…",
+      "resultsCount": "{count, plural, one {# result} other {# results}}",
+      "noResults": "No products matched that search."
+    }
+  }
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 // Adjust this to whenever the real promotion should end.
 const TARGET_DATE = new Date();
@@ -18,6 +19,7 @@ function getTimeLeft() {
 }
 
 export default function CountdownTimer() {
+  const t = useTranslations("discount");
   const [time, setTime] = useState<ReturnType<typeof getTimeLeft> | null>(
     null
   );
@@ -29,10 +31,10 @@ export default function CountdownTimer() {
   }, []);
 
   const units: { label: string; value: number }[] = [
-    { label: "Days", value: time?.days ?? 0 },
-    { label: "Hrs", value: time?.hrs ?? 0 },
-    { label: "Min", value: time?.min ?? 0 },
-    { label: "Sec", value: time?.sec ?? 0 },
+    { label: t("days"), value: time?.days ?? 0 },
+    { label: t("hrs"), value: time?.hrs ?? 0 },
+    { label: t("min"), value: time?.min ?? 0 },
+    { label: t("sec"), value: time?.sec ?? 0 },
   ];
 
   return (

@@ -1,0 +1,162 @@
+// Prisma schema for ShopLite.
+//
+// Defaults to SQLite for zero-setup local dev (just `npm run db:push`).
+// For production, swap the datasource below to Postgres/MySQL and point
+// DATABASE_URL at it — nothing else in this file needs to change.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Storefront catalog — this is what Categories.tsx and BestSelling.tsx read,
+// and what the admin panel (/admin/categories, /admin/products) edits.
+// ---------------------------------------------------------------------------
+
+model Category {
+  id        String   @id @default(cuid())
+  name      String
+  imageUrl  String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([sortOrder])
+}
+
+model Product {
+  id        String   @id @default(cuid())
+  name      String
+  price     Float
+  imageUrl  String
+  // Lets you reuse this same table for future sections (e.g. "new-arrivals")
+  // without a schema change — the storefront currently only queries
+  // section = "best-selling".
+  section   String   @default("best-selling")
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  wishlistedBy WishlistItem[]
+  cartedBy     CartItem[]
+
+  @@index([section, sortOrder])
+}
+
+// ---------------------------------------------------------------------------
+// Contact form submissions — stored so an admin can actually read them at
+// /admin/messages, instead of the form just pretending to send something.
+// ---------------------------------------------------------------------------
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([read])
+}
+
+// ---------------------------------------------------------------------------
+// Per-user wishlist and cart. Both are scoped to userId, which is exactly
+// what makes them useful as proof that different signed-in accounts see
+// different data — not shared state, not something read from a cookie.
+// ---------------------------------------------------------------------------
+
+model WishlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId])
+}
+
+model CartItem {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  quantity  Int      @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId])
+}
+
+// ---------------------------------------------------------------------------
+// Auth — required tables for the Auth.js (NextAuth v5) Prisma adapter.
+// Session strategy is JWT (see auth.ts), so the Session table isn't used for
+// live sessions, but the adapter still expects it to exist.
+// ---------------------------------------------------------------------------
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  // Set only for accounts created via email/password sign-up. Null for
+  // Google-only accounts. Always a bcrypt hash — the raw password is never
+  // persisted anywhere, only compared against this hash at sign-in.
+  password      String?
+  // "ADMIN" can access /admin. Everyone else who signs in is "USER".
+  // The ADMIN_EMAILS env var only promotes an account at the moment it's
+  // first created (see auth.ts) — that's purely a bootstrap mechanism for
+  // your very first admin. After that, role changes only happen through
+  // an existing admin using /admin/users.
+  role          String    @default("USER")
+
+  accounts Account[]
+  sessions Session[]
+  wishlistItems WishlistItem[]
+  cartItems     CartItem[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}

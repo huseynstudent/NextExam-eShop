@@ -1,6 +1,17 @@
-/** @type {import('next').NextConfig} */
+const createNextIntlPlugin = require("next-intl/plugin");
+const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
+
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        // Google account profile photos, shown for signed-in users/admins.
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+    ],
+  },
 };
 
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);
